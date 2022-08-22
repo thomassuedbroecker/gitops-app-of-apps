@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: vend
-  namespace: app-of-apps
+  namespace: openshift-gitops
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -14,8 +14,8 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-    path: "charts/root-application"
-    repoURL: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+    path: "charts/vend-helm"
+    repoURL: "https://github.com/thomassuedbroecker/vend-helm"
     targetRevision: HEAD
   syncPolicy:
     retry:

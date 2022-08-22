@@ -15,17 +15,18 @@ helm dependency update ./root-application
 * Verify Helm configuration
 
 ```sh
+helm lint
 helm install --dry-run --debug root-application ./root-application/
 ```
 
 * Install Argo CD configuration using Helm
 
 ```sh
-helm install root-application ./root-application
+helm install root-application ./root-application/
 ```
 
 * Uninstall Argo CD configuration using Helm
 
 ```sh
-helm uninstall root-application ./root-application
+helm uninstall root-application
 ```
