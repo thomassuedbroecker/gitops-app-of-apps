@@ -2,15 +2,15 @@
 
 This is an example to setup [app an apps pattern for ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
-We using the basic setup of the blog post from ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ). 
+We using the basic setup of the blog post from ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ) as our starting point. 
 
-That means:
+That means we we following in place:
 
 * IBM Cloud is used
 * Red Hat OpenShift in a VPC is setup
 * Argo CD is setup and initial bootstap configured
 
-But in that example we don't use the configured bootstap resoures for Argo CD `repository`, `project` and `application`. 
+But in that example we don't use the configured bootstap resoures for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called 
 
 * We setup our own `"app-of-apps"` root application.
 
