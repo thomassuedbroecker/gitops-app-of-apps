@@ -10,7 +10,7 @@ That means we have following in place:
 * Red Hat OpenShift in a VPC is setup
 * Argo CD is setup and initial bootstap configured
 
-But in that example we don't use the [configured bootstap resoures]([terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
+But in that example we don't use the [configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
 
 * We setup our own `"app-of-apps"` root application.
 
@@ -22,7 +22,6 @@ But in that example we don't use the [configured bootstap resoures]([terraform-t
 
 
 * We reuse the existing `"openshift-gitops"` project/namespace for the Argo CD configuration.
-
 
 
 ## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
@@ -60,7 +59,7 @@ helm uninstall root-application
 
 ### a) Repository
 
-```sh
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
