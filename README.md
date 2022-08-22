@@ -24,6 +24,8 @@ helm install --dry-run --debug root-application ./root-application/
 helm install root-application ./root-application
 ```
 
+* Uninstall Argo CD configuration using Helm
+
 ```sh
 helm uninstall root-application ./root-application
 ```
