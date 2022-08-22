@@ -106,13 +106,21 @@ project_destination_server: "https://kubernetes.default.svc"
 project_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 ```
 
-### b) `app-of-apps` Application 
+### c) `app-of-apps` Application 
 
 This is the `app-of-apps` application configuration.We call the configuration in our situation the application `root-application`.
 
 The image below shows a later stage, when we sync all resources.
 
 ![](images/app-of-apps-01.png)
+
+The application is not defined as a specific type deployment types like helm for example.
+
+It just contains the information:
+
+* Related Argo CD project
+* Destination information 
+* Source information
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -148,6 +156,38 @@ application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-o
 application_source_path: "root-applications"
 ```
 
+### d) `example vend` Application
+
+The following configartion of the application contains.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vend
+  namespace: openshift-gitops
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: in-cluster
+    namespace: openshift-gitops
+  project: root-application
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: "charts/vend-helm"
+    repoURL: "https://github.com/thomassuedbroecker/vend-helm"
+    targetRevision: HEAD
+  syncPolicy:
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+```
 
 ## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
 
