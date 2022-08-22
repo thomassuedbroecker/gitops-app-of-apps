@@ -8,6 +8,16 @@ application_project: "root-application"
 application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 application_source_path: "charts/root-application"
 
+# Application sample-application
+
+sample-application_metadata_name:  "vend-application"
+sample-application_metadata_namespace: "openshift-gitops"
+sample-application_destination_namespace: "vend-application"
+sample-application_destination_name: "in-cluster"
+sample-application_project: "root-application"
+sample-application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+sample-application_source_path: "charts/root-application"
+
 # Project root-application
 
 project_metadata_name:  "root-application"
