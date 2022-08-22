@@ -402,5 +402,5 @@ Here you see we need to sync the vend application.
 
 ## 5. Summary
 
-Now we followed one option to to configure `app-of-apps` in Argo CD.
+Now we followed one option to configure `app-of-apps` in Argo CD.
 
