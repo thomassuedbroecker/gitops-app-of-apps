@@ -31,6 +31,9 @@ And we are going to use ...
 
 * ... Helm to the `app-of-apps` the `vend example` application to our cluster
 
+    The images shows create Argo CD resoucres later.
+    ![](images/app-of-apps-01.png)
+
 * ... folder `"root-applications"` contains the CD configuration yaml for new applications. In our case we have saved the application configuration for the `example vend app` in the `"root-applications"` folder.
 
 In current example we won't use the [pre-configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD resources, created by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
@@ -44,7 +47,7 @@ The readme is organized in th following sections:
 
     * Two `Argo CD applications` the first is `root-application` and the second is `vend` example application
 
-    ![](images/app-of-apps-01.png)
+    
 
     * one `Argo CD project` 
     * one `Argo CD repository`
