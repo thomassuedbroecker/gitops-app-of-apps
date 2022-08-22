@@ -13,9 +13,17 @@ That means:
 But in that example we don't use the configured bootstap resoures for Argo CD `repository`, `project` and `application`. 
 
 * We setup our own `"app-of-apps"` root application.
-* We reuse the existing `"openshift-gitops"` workspace.
 
 ![](images/app-of-apps-01.png)
+
+* We use the folder `"root-applications"` to deploy applications to our root application.
+
+![](images/app-of-apps-02.png)
+
+
+* We reuse the existing `"openshift-gitops"` project/namespace for the Argo CD configuration.
+
+
 
 ## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
 
