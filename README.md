@@ -2,7 +2,7 @@
 
 This is an example to setup [app an apps pattern for ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
-We using the basic setup of the blog post from ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ) as our starting point. 
+As our starting point we using the basic setup you can follow in the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ) . 
 
 That means we have following in place:
 
@@ -12,9 +12,21 @@ That means we have following in place:
 
 But in that example we don't use the [configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
 
-* We setup our own `"app-of-apps"` root application.
+The readme is organized in th following sections:
+
+1. Understand the `"app-of-apps"` Argo CD configuration
+2. Deploy the Arfollowing:
+
+* Two `Argo CD applications` the first is `root-application` and the second is `vend` example application
 
 ![](images/app-of-apps-01.png)
+
+* one `Argo CD project` 
+* one `Argo CD repository`
+
+* We setup our own `"app-of-apps"` root application.
+
+
 
 * We use the folder `"root-applications"` to deploy applications to our root application.
 
