@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ .Values.project_metadata_name }}
+  namespace: {{ .Values.project_metadata_namespace }}
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: This is just an root-project example.
+  destinations:
+    - name: {{ .Values.project_destination_name }}
+      namespace: '*'
+      server: {{ .Values.project_destination_server }}
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  sourceRepos:
+    - '*'
+status: {}
