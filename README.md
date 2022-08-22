@@ -40,63 +40,6 @@ In current example we won't use the [pre-configured bootstap resoures](https://g
 
 ## 2. Understand the `"app-of-apps"` Argo CD configuration for the example
 
-The readme is organized in th following sections:
-
-1. Understand the `"app-of-apps"` Argo CD configuration
-2. Deploy the are following:
-
-    * Two `Argo CD applications` the first is `root-application` and the second is `vend` example application
-
-    
-
-    * one `Argo CD project` 
-    * one `Argo CD repository`
-
-* We setup our own `"app-of-apps"` root application.
-
-
-
-
-
-![](images/app-of-apps-02.png)
-
-
-* We reuse the existing `"openshift-gitops"` project/namespace for the Argo CD configuration.
-
-
-## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
-
-First we will deploy the Argo CD `root-application` with the related project and repository to `Argo CD`.
-
-* Update Helm dependencies
-
-```sh
-helm dependency update ./root-application
-```
-
-* Verify Helm configuration
-
-```sh
-helm lint
-helm install --dry-run --debug root-application ./root-application/
-```
-
-* Install Argo CD configuration using Helm
-
-```sh
-helm install root-application ./root-application/
-```
-
-* Uninstall Argo CD configuration using Helm
-
-```sh
-helm uninstall root-application
-```
-
->Note: When we create the repository with Helm we don't have the access rights to connect to the github repository we are using as our repository. That why we need to recreate it later from the ui, because we in that example we what to use public github project and we don't save credenticals in a public github project. 
-
-## Step 2: Understand the Argo CD configuration
-
 ### a) Repository
 
 ```yaml
@@ -151,7 +94,7 @@ Let us have a short look at some of the values:
 
 1. `project_destination_namespace`: Here we reuse the exising `"openshift-gitops"` namespace.
 2. `project_destination_namespace`: We allow all namespases `"*"` as destination namespaces.
-3. `project_destination_name` :We configure only `"in-custer"` as a valid cluser
+3. `project_destination_name`: We configure only `"in-custer"` as a valid cluser
 4. `project_source_repo_url`: We configure our repository, where we are going to search for new applications to deploy.
 
 ```yaml
@@ -165,9 +108,11 @@ project_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-ap
 
 ### b) `app-of-apps` Application 
 
-This is the configuration of that we call in our situation the application `root-application`.
+This is the `app-of-apps` application configuration.We call the configuration in our situation the application `root-application`.
 
 The image below shows a later stage, when we sync all resources.
+
+![](images/app-of-apps-01.png)
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -202,5 +147,40 @@ application_project: "root-application"
 application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 application_source_path: "root-applications"
 ```
+
+
+## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
+
+First we will deploy the Argo CD `root-application` with the related project and repository to `Argo CD`.
+
+* Update Helm dependencies
+
+```sh
+helm dependency update ./root-application
+```
+
+* Verify Helm configuration
+
+```sh
+helm lint
+helm install --dry-run --debug root-application ./root-application/
+```
+
+* Install Argo CD configuration using Helm
+
+```sh
+helm install root-application ./root-application/
+```
+
+* Uninstall Argo CD configuration using Helm
+
+```sh
+helm uninstall root-application
+```
+
+>Note: When we create the repository with Helm we don't have the access rights to connect to the github repository we are using as our repository. That why we need to recreate it later from the ui, because we in that example we what to use public github project and we don't save credenticals in a public github project. 
+
+## Step 2: Understand the Argo CD configuration
+
 
 
