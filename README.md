@@ -14,13 +14,11 @@ That is a simplified architecture overview
 
 ![](images/app-of-apps-03.png)
 
-As a starting point we are using the which can be created by following the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ), please at the this blog post for details. 
+As a starting point we are using the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ) to configure and setup the needed following resources. 
 
-Our starting point:
-
-* IBM Cloud is used
+* IBM Cloud 
 * Red Hat OpenShift in a VPC is setup
-* Argo CD is setup and initial bootstap configured
+* Argo CD is setup and initial gitops bootstap is configured
 
 And we are going to use ...
 
