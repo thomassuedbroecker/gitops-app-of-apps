@@ -4,13 +4,13 @@ This is an example to setup [app an apps pattern for ArgoCD](https://argo-cd.rea
 
 We using the basic setup of the blog post from ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ) as our starting point. 
 
-That means we we following in place:
+That means we have following in place:
 
 * IBM Cloud is used
 * Red Hat OpenShift in a VPC is setup
 * Argo CD is setup and initial bootstap configured
 
-But in that example we don't use the configured bootstap resoures for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
+But in that example we don't use the [configured bootstap resoures]([terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
 
 * We setup our own `"app-of-apps"` root application.
 
@@ -129,8 +129,6 @@ project_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-ap
 This is the configuration of that we call in our situation the application `root-application`.
 
 The image below shows a later stage, when we sync all resources.
-
-
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
