@@ -8,6 +8,7 @@ The readme is organized in th following sections:
 2. Understand the `"app-of-apps"` Argo CD configuration for the example
 3. Deploy the example app-of-apps with Helm
 4. Verify the example app-of-apps in Argo CD
+5. Summary 
 
 ## 1. Simplified architecture overview
 
@@ -380,5 +381,27 @@ Open `Applications` and the you will notice the `root-application` it is out of 
 ### Step 5: Ensure you see the resource defined for the `root-applications` in folder of the `https://github.com/thomassuedbroecker/gitops-app-of-apps` repository
 
 ![](images/app-of-apps-07.png)
+
+### Step 6: Press sync for the application
+
+![](images/app-of-apps-08.png)
+
+### Step 7: Then you will notice what needs to be synchronized
+
+![](images/app-of-apps-09.png)
+
+### Step 8: Go back to Applications and press sync
+
+Here you see we need to sync the vend application. 
+
+![](images/app-of-apps-10.png)
+
+### Step 9: Now click on vend and verify the created application resources
+
+![](images/app-of-apps-11.png)
+
+## 5. Summary
+
+Now we followed one option to to configure `app-of-apps` in Argo CD.
 
 
