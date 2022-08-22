@@ -1,16 +1,31 @@
 # gitops-app-of-apps
 
-This is an example to setup [app an apps pattern for ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
+This is an example to setup an [app-of-apps pattern in ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
-As our starting point we using the basic setup you can follow in the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ) . 
+As a starting point we are using the setup which can be created with the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ). 
 
-That means we have following in place:
+That means our starting point is, we have following in place:
 
 * IBM Cloud is used
 * Red Hat OpenShift in a VPC is setup
 * Argo CD is setup and initial bootstap configured
 
-But in that example we don't use the [configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
+And we are going to use:
+
+* Existing GitHub repositories:
+    * One GitHub repository for the Argo CD configurations
+    * One GitHub repository for the example application called vend
+* We will deploy the `app-of-apps` with a Helm chart to our cluster
+
+In that example we don't use the [configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
+
+
+## Simplified architecture overview
+
+That is a simplified architecture overview
+
+![](images/app-of-apps-03.png)
+
 
 The readme is organized in th following sections:
 
