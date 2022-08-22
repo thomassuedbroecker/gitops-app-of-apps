@@ -1,8 +1,8 @@
 # gitops-app-of-apps
 
-This is an example to setup app an apps pattern for ArgoCD.
+This is an example to setup [app an apps pattern for ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
-Using the basic setup of the blog post from ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ).
+We using the basic setup of the blog post from ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ). 
 
 That means:
 
@@ -12,8 +12,10 @@ That means:
 
 But in that example we don't use the configured bootstap resoures for Argo CD `repository`, `project` and `application`. 
 
-We setup our own `"app-of-apps"` root application.
-We reuse the existing `"openshift-gitops"` workspace.
+* We setup our own `"app-of-apps"` root application.
+* We reuse the existing `"openshift-gitops"` workspace.
+
+![](images/app-of-apps-01.png)
 
 ## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
 
@@ -114,7 +116,13 @@ project_destination_server: "https://kubernetes.default.svc"
 project_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 ```
 
-### b) (app of apps) Application
+### b) `app-of-apps` Application 
+
+This is the configuration of that we call in our situation the application `root-application`.
+
+The image below shows a later stage, when we sync all resources.
+
+
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -149,3 +157,5 @@ application_project: "root-application"
 application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 application_source_path: "root-applications"
 ```
+
+
