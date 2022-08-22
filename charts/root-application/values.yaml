@@ -1,0 +1,30 @@
+# Application root-application
+
+application_metadata_name:  "root-application"
+application_metadata_namespace: "openshift-gitops"
+application_destination_namespace: "root-application"
+application_destination_name: "in-cluster"
+application_project: "root-application"
+application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+application_source_path: "charts/root-application"
+
+# Project root-application
+
+project_metadata_name:  "root-application"
+project_metadata_namespace: "openshift-gitops"
+project_destination_namespace: "root-application"
+project_destination_name: "in-cluster"
+project_destination_server: "https://kubernetes.default.svc"
+project_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+
+# Repository root-application
+
+repository_metadata_name:  "github.com-thomassuedbroecker-gitops-app-of-apps"
+repository_metadata_namespace: "openshift-gitops"
+repository_stringData_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+
+# Repository sample-application
+
+sample_repo_metadata_name:  "github.com-thomassuedbroecker-vend-helm"
+sample_repo_metadata_namespace: "openshift-gitops"
+sample_repo_stringData_url: "https://github.com/thomassuedbroecker/vend-helm"

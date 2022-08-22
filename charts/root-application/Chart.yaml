@@ -1,0 +1,8 @@
+apiVersion: v2
+version: 1.0.0
+appVersion: 1.0.0
+type: application
+description: A Helm chart for Kubernetes to install a root application for the app of apps pattern.
+name: "root-application"
+   
+
