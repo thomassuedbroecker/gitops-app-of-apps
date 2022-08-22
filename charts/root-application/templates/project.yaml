@@ -7,7 +7,7 @@ spec:
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
-  description: This is just an root-project example.
+  description: This is just a root-project example.
   destinations:
     - name: {{ .Values.project_destination_name }}
       namespace: '*'

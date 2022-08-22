@@ -7,7 +7,7 @@ The readme is organized in th following sections:
 1. Simplified architecture overview
 2. Understand the `"app-of-apps"` Argo CD configuration for the example
 3. Deploy the example app-of-apps with Helm
-4. Verify the example app-of-apps
+4. Verify the example app-of-apps in Argo CD
 
 ## 1. Simplified architecture overview
 
@@ -355,7 +355,30 @@ helm uninstall root-application
 
 >Note: When we create the repository with Helm we don't have the access rights to connect to the github repository we are using as our repository. That why we need to recreate it later from the ui, because we in that example we what to use public github project and we don't save credenticals in a public github project. 
 
+## 4. Verify the example app-of-apps in Argo CD
 
+### Step 1: Login to Argo CD as admin
 
+### Step 2: Verfiy the connected repositories
+
+In `Settings/Repositories` that the `https://github.com/thomassuedbroecker/gitops-app-of-apps` repository is connected.
+
+![](images/app-of-apps-04.png)
+
+### Step 3: Verfiy the `root` project exists
+
+In `Settings/Projects` the project called `root-application` should be created.
+
+![](images/app-of-apps-05.png)
+
+### Step 4: Verfiy the application called `root-application` exists
+
+Open `Applications` and the you will notice the `root-application` it is out of sync and click on the application.
+
+![](images/app-of-apps-06.png)
+
+### Step 5: Ensure you see the resource defined for the `root-applications` in folder of the `https://github.com/thomassuedbroecker/gitops-app-of-apps` repository
+
+![](images/app-of-apps-07.png)
 
 
