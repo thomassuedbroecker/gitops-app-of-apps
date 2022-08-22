@@ -2,22 +2,24 @@
 
 This is an example to setup an [app-of-apps pattern in ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
-As a starting point we are using the setup which can be created with the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ). 
+As a starting point we are using the which can be created by following the blog post called ["Use Software Everywhere and IasCable to setup GitOps on a Red Hat OpenShift Cluster in a Virtual Private Cloud on IBM Cloud"](https://wp.me/paelj4-1tZ), please at the this blog post for details. 
 
-That means our starting point is, we have following in place:
+Our starting point:
 
 * IBM Cloud is used
 * Red Hat OpenShift in a VPC is setup
 * Argo CD is setup and initial bootstap configured
 
-And we are going to use:
+And we are going to use ...
 
-* Existing GitHub repositories:
+* ... two existing GitHub repositories:
+
     * One GitHub repository for the Argo CD configurations
     * One GitHub repository for the example application called vend
-* We will deploy the `app-of-apps` with a Helm chart to our cluster
 
-In that example we don't use the [configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD `repository`, `project` and `application` provided by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
+* ... Helm to the `app-of-apps` the `vend example` application to our cluster
+
+In current example we won't use the [pre-configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD resources, created by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
 
 
 ## Simplified architecture overview
