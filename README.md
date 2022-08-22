@@ -15,14 +15,14 @@ But in that example we don't use the [configured bootstap resoures](https://gith
 The readme is organized in th following sections:
 
 1. Understand the `"app-of-apps"` Argo CD configuration
-2. Deploy the Arfollowing:
+2. Deploy the are following:
 
-* Two `Argo CD applications` the first is `root-application` and the second is `vend` example application
+    * Two `Argo CD applications` the first is `root-application` and the second is `vend` example application
 
-![](images/app-of-apps-01.png)
+    ![](images/app-of-apps-01.png)
 
-* one `Argo CD project` 
-* one `Argo CD repository`
+    * one `Argo CD project` 
+    * one `Argo CD repository`
 
 * We setup our own `"app-of-apps"` root application.
 
