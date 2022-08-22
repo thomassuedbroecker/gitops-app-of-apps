@@ -6,7 +6,8 @@ The readme is organized in th following sections:
 
 1. Simplified architecture overview
 2. Understand the `"app-of-apps"` Argo CD configuration for the example
-2. Deploy the are following:
+3. Deploy the example app-of-apps with Helm
+4. Verify the example app-of-apps
 
 ## 1. Simplified architecture overview
 
@@ -156,7 +157,7 @@ application_source_path: "root-applications"
 
 ### d) `example vend` Application
 
-The following configartion of the application contains.
+The following configuration of the application contains the link to GitHub repo for with the helm chart to deploy the example vend application.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -187,30 +188,46 @@ spec:
       limit: 2
 ```
 
-## Steps 1: Apply an `Argo CD` configure to use own `app of apps` configuration by using helm
+## 3. Deploy the example with Helm
 
-First we will deploy the Argo CD `root-application` with the related project and repository to `Argo CD`.
+### Step 1: Clone the project
 
-* Update Helm dependencies
+```sh
+git clone https://github.com/thomassuedbroecker/gitops-app-of-apps.git
+```
+
+### Step 2: Navigate to the "charts" folder
+
+```sh
+cd charts
+```
+
+### Step 3: Ensure you are connect to your OpenShift cluster with admin rights
+
+```sh
+oc login --token=YOUR_TOKEN --server=https://YOUR_SERVER_URL
+```
+
+### Step 4: Update Helm dependencies
 
 ```sh
 helm dependency update ./root-application
 ```
 
-* Verify Helm configuration
+### Step 5: Verify Helm configuration
 
 ```sh
 helm lint
 helm install --dry-run --debug root-application ./root-application/
 ```
 
-* Install Argo CD configuration using Helm
+### Step 6: Install Argo CD configuration using Helm
 
 ```sh
 helm install root-application ./root-application/
 ```
 
-* Uninstall Argo CD configuration using Helm
+### Step 7 (optional):  Uninstall Argo CD configuration using Helm
 
 ```sh
 helm uninstall root-application
@@ -218,7 +235,7 @@ helm uninstall root-application
 
 >Note: When we create the repository with Helm we don't have the access rights to connect to the github repository we are using as our repository. That why we need to recreate it later from the ui, because we in that example we what to use public github project and we don't save credenticals in a public github project. 
 
-## Step 2: Understand the Argo CD configuration
+
 
 
 
