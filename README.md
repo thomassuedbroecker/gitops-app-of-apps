@@ -2,7 +2,7 @@
 
 This is an example to setup an [app-of-apps pattern in ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/).
 
-The readme is organized in th following sections:
+The readme is organized in the following sections:
 
 1. Simplified architecture overview
 2. Understand the `"app-of-apps"` Argo CD configuration for the example
@@ -34,7 +34,7 @@ And we are going to use ...
     The images shows create Argo CD resoucres later.
     ![](images/app-of-apps-01.png)
 
-* ... folder `"root-applications"` contains the CD configuration yaml for new applications. In our case we have saved the application configuration for the `example vend app` in the `"root-applications"` folder.
+* ... the folder `"root-applications"` contains the CD configuration yaml for new applications. In our case we have saved the application configuration for the `example vend app` in the `"root-applications"` folder.
 
 > Note: In current example we won't use the [pre-configured bootstap resoures](https://github.com/cloud-native-toolkit/terraform-tools-gitops) for Argo CD resources, created by the [Software Everywhere](https://github.com/cloud-native-toolkit/software-everywhere) module called [terraform-tools-gitops](https://github.com/cloud-native-toolkit/terraform-tools-gitops).
 
@@ -403,5 +403,4 @@ Here you see we need to sync the vend application.
 ## 5. Summary
 
 Now we followed one option to to configure `app-of-apps` in Argo CD.
-
 
