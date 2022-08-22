@@ -7,8 +7,8 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    name: vend
-    namespace: vend
+    name: in-cluster
+    namespace: openshift-gitops
   project: root-application
   source:
     helm:
