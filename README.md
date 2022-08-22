@@ -216,15 +216,135 @@ helm dependency update ./root-application
 
 ### Step 5: Verify Helm configuration
 
+* Verify with lint
+
 ```sh
-helm lint
+helm lint ./root-application
+```
+
+* Example output:
+
+```sh
+==> Linting ./root-application
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+```
+
+* Do a dry-run
+
+```sh
 helm install --dry-run --debug root-application ./root-application/
+```
+
+* Example output:
+
+```sh
+install.go:178: [debug] Original chart version: ""
+install.go:195: [debug] CHART PATH: /Users/thomassuedbroecker/Downloads/dev/gitops-app-of-apps/charts/root-application
+
+NAME: root-application
+LAST DEPLOYED: Mon Aug 22 19:26:23 2022
+NAMESPACE: default
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+application_destination_name: in-cluster
+application_destination_namespace: openshift-gitops
+application_metadata_name: root-application
+application_metadata_namespace: openshift-gitops
+application_project: root-application
+application_source_path: root-applications
+application_source_repo_url: https://github.com/thomassuedbroecker/gitops-app-of-apps
+project_destination_name: in-cluster
+project_destination_namespace: '*'
+project_destination_server: https://kubernetes.default.svc
+project_metadata_name: root-application
+project_metadata_namespace: openshift-gitops
+project_source_repo_url: https://github.com/thomassuedbroecker/gitops-app-of-apps
+repository_metadata_name: github.com-thomassuedbroecker-gitops-app-of-apps
+repository_metadata_namespace: openshift-gitops
+repository_stringData_url: https://github.com/thomassuedbroecker/gitops-app-of-apps
+
+HOOKS:
+MANIFEST:
+---
+# Source: root-application/templates/repository.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github.com-thomassuedbroecker-gitops-app-of-apps
+  namespace: openshift-gitops
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/thomassuedbroecker/gitops-app-of-apps
+---
+# Source: root-application/templates/project.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: root-application
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: This is just an root-project example.
+  destinations:
+    - name: in-cluster
+      namespace: '*'
+      server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  sourceRepos:
+    - '*'
+status: {}
+---
+# Source: root-application/templates/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-application
+  namespace: openshift-gitops
+spec:
+  destination:
+    name: in-cluster
+    namespace: openshift-gitops
+  project: root-application
+  source:
+    path: root-applications 
+    repoURL: https://github.com/thomassuedbroecker/gitops-app-of-apps
+    targetRevision: HEAD
+  syncPolicy:
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDura
 ```
 
 ### Step 6: Install Argo CD configuration using Helm
 
 ```sh
 helm install root-application ./root-application/
+```
+
+* Example output:
+
+```sh
+NAME: root-application
+LAST DEPLOYED: Mon Aug 22 19:28:34 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
 ```
 
 ### Step 7 (optional):  Uninstall Argo CD configuration using Helm
