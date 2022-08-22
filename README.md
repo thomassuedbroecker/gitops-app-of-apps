@@ -43,3 +43,5 @@ helm install root-application ./root-application/
 ```sh
 helm uninstall root-application
 ```
+
+>Note: When we create the repository with Helm we don't have the access rights to connect to the github repository we are using as our repository. That why we need to recreate it later from the ui, because we in that example we what to use public github project and we don't save credenticals in a public github project. 
