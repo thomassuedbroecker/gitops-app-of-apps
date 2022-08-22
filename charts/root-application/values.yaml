@@ -6,7 +6,7 @@ application_destination_namespace: "openshift-gitops"
 application_destination_name: "in-cluster"
 application_project: "root-application"
 application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
-application_source_path: "charts/root-application/templates"
+application_source_path: "root-applications"
 
 # Project root-application
 
