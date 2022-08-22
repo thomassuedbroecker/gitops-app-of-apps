@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: {{ .Values.sampleapp_metadata_name }}
   namespace: {{ .Values.sampleapp_metadata_namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     name: {{ .Values.sampleapp_destination_name }}

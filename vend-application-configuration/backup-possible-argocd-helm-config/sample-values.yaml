@@ -1,0 +1,15 @@
+# Application sample-application
+
+sampleapp_metadata_name:  "vend-application"
+sampleapp_metadata_namespace: "openshift-gitops"
+sampleapp_destination_namespace: "vend-application"
+sampleapp_destination_name: "in-cluster"
+sampleapp_project: "root-application"
+sampleapp_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+sampleapp_source_path: "charts/vend-helm"
+
+# Repository sample-application
+
+samplerepo_metadata_name:  "github.com-thomassuedbroecker-vend-helm"
+samplerepo_metadata_namespace: "openshift-gitops"
+samplerepo_stringData_url: "https://github.com/thomassuedbroecker/vend-helm"
