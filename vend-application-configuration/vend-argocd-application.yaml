@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vend
+  namespace: app-of-apps
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: vend
+    namespace: vend
+  project: root-application
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: "charts/root-application"
+    repoURL: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+    targetRevision: HEAD
+  syncPolicy:
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
