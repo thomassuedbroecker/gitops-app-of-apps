@@ -9,9 +9,6 @@ spec:
     namespace: {{ .Values.application_destination_namespace }}
   project: {{ .Values.application_project }}
   source:
-    helm:
-      valueFiles:
-        - values.yaml
     path: {{ .Values.application_source_path }} 
     repoURL: {{ .Values.application_source_repo_url }}
     targetRevision: HEAD
