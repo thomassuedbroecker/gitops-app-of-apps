@@ -8,16 +8,6 @@ application_project: "root-application"
 application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 application_source_path: "charts/root-application"
 
-# Application sample-application
-
-sample-application_metadata_name:  "vend-application"
-sample-application_metadata_namespace: "openshift-gitops"
-sample-application_destination_namespace: "vend-application"
-sample-application_destination_name: "in-cluster"
-sample-application_project: "root-application"
-sample-application_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
-sample-application_source_path: "charts/root-application"
-
 # Project root-application
 
 project_metadata_name:  "root-application"
@@ -33,8 +23,18 @@ repository_metadata_name:  "github.com-thomassuedbroecker-gitops-app-of-apps"
 repository_metadata_namespace: "openshift-gitops"
 repository_stringData_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
 
+# Application sample-application
+
+sampleapp_metadata_name:  "vend-application"
+sampleapp_metadata_namespace: "openshift-gitops"
+sampleapp_destination_namespace: "vend-application"
+sampleapp_destination_name: "in-cluster"
+sampleapp_project: "root-application"
+sampleapp_source_repo_url: "https://github.com/thomassuedbroecker/gitops-app-of-apps"
+sampleapp_source_path: "charts/vend-helm"
+
 # Repository sample-application
 
-sample_repo_metadata_name:  "github.com-thomassuedbroecker-vend-helm"
-sample_repo_metadata_namespace: "openshift-gitops"
-sample_repo_stringData_url: "https://github.com/thomassuedbroecker/vend-helm"
+samplerepo_metadata_name:  "github.com-thomassuedbroecker-vend-helm"
+samplerepo_metadata_namespace: "openshift-gitops"
+samplerepo_stringData_url: "https://github.com/thomassuedbroecker/vend-helm"

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.samplerepo_metadata_name }}
+  namespace: {{ .Values.samplerepo_metadata_namespace }}
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: {{ .Values.samplerepo_stringData_url }}

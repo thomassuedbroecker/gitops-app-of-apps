@@ -10,11 +10,11 @@ spec:
   description: This is just an root-project example.
   destinations:
     - name: {{ .Values.project_destination_name }}
-      namespace: {{ .Values.project_destination_namespace }}
+      namespace: '*'
       server: {{ .Values.project_destination_server }}
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'
   sourceRepos:
-    - {{ .Values.project_source_repo_url }}
+    - '*'
 status: {}

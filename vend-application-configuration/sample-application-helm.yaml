@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.sampleapp_metadata_name }}
+  namespace: {{ .Values.sampleapp_metadata_namespace }}
+spec:
+  destination:
+    name: {{ .Values.sampleapp_destination_name }}
+    namespace: {{ .Values.sampleapp_destination_namespace }}
+  project: {{ .Values.sampleapp_project }}
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: {{ .Values.sampleapp_source_path }} 
+    repoURL: {{ .Values.sampleapp_source_repo_url }}
+    targetRevision: HEAD
+  syncPolicy:
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
